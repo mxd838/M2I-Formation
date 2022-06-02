@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #333;
+    height: 70vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dragzone, .dropzone {
+    margin: 2em auto;
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dragzone {
+    background-color: rgb(50, 100, 175);
+}
+
+.dropzone {
+    background-color: rgb(196, 91, 52);
+}
+
+#draggable1, .draggable1 {
+    width: 30vw;
+    height: auto;
+    border-radius: 0.2em;
+    margin: 0.5em;
+}
+
+#draggable2, .draggable2 {
+    background: #c1c1c1;
+    border: 1px solid #333;
+    border-radius: 0.2m;
+}
+
+.hide {
+    display: none;
+}
+
