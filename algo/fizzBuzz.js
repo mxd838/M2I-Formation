@@ -21,4 +21,10 @@ function fizzBuzz(number){
     }
 }
 
-fizzBuzz(stopNumber)
+// fizzBuzz(stopNumber)
+
+
+console.log('texte'.slice(3))
+console.log('texte'.substring(3))
+let a = 3
+console.log(a.toString)
