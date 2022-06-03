@@ -28,6 +28,6 @@ function tempCloserToZero(...temps){
 
 
 
-console.log(`La température la plus proche de 0 degré est ${tempCloserToZero(12,25,5,7,6,-5)}`)
+console.log(`La température la plus proche de 0 degrés est ${tempCloserToZero(12,25,5,7,6,-5)}`)
 
-console.log(`La température la plus proche de 0 degré est ${tempCloserToZero(-9, 18, -8, 8, 12, -12, 48)}`)
+console.log(`La température la plus proche de 0 degrés est ${tempCloserToZero(-9, 18, -8, 8, 12, -12, 48)}`)
