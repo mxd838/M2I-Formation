@@ -5,6 +5,7 @@
 // Prime number : only divisible by 1 and itself
 
 function displayPrime(number){
-    
+   // loop over all the integers up until the number
+   //  
 }
 
