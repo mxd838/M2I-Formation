@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+
+.city, .forecastItem {
+    background: #f1f1f1;
+    color: #333;
+    border-radius: 0.3em;
+    padding: 0.6em;
+}
+
+.city {
+    margin-bottom: 1em;
+}
+
+
+
+
+.forecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5em;
+}
+
+.forecastItem {
+    display: flex;
+    flex-direction: column;
+}
+
