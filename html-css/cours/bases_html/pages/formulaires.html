@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaires</title>
+</head>
+<body>
+    <header>
+        <h1>Les formulaires HTML</h1>
+        <p>Un moyen pour les utilisateurs de nous transmettre des données</p>
+    </header>
+
+    <section>
+        <!-- bloc formulaire : il contient la logique du formulaire ie
+            - comment l'envoyer -> method
+            - ou l'envoyer -> action
+            - les données du formulaire
+         -->
+        <form action="#" method="get" novalidate>
+            <!-- secu en front ne se substitue pas a la secu en back -->
+            <!-- champ de formulaire qui accepte du texte -->
+            <div>
+                <label for="prenom">Entrez votre prénom :</label>
+                <input type="text" name="prenom" id="prenom" value="Jean" readonly>
+            </div>
+  
+            <div>
+                <label for="prenom2"> Prénom 2 :
+                    <input type="text" name="prenom" id="prenom2" placeholder="Jean" pattern="[A-Z][a-z]*">
+                </label>
+            </div>
+         
+            <div>
+                <label for="age">Age :</label>
+                <input type="number" name="age" id="age" min="0" max="120" step="2">
+            </div>
+
+            <div>
+                <label for="date_naissance">Date :</label>
+                <input type="date" name="date_naissance" id="date_naissance" disabled>
+            </div>
+
+            <div>
+                <label for="couleur">Couleur :</label>
+                <input type="color" name="couleur" id="couleur">
+            </div>
+
+            <div>
+                <label for="mail">Email :</label>
+                <input type="email" name="mail" id="mail" required>
+            </div>
+
+            <div>
+                <label for="fichier">Fichier :</label>
+                <input type="file" name="fichier" id="fichier">
+            </div>
+
+            <!-- checkbox & input radio -->
+            <div>
+                <label for="cluf">J'accepte les conditions d'utilisation</label>
+                <input type="checkbox" name="" id="">
+            </div>
+
+            <div>
+                <label>Plutot raclette ou tartiflette</label>
+                <label for="raclette">Raclette</label>
+                <input type="radio" name="plat" id="raclette" value="raclette" checked>
+                <label for="tartiflette">Tartiflette</label>
+                <input type="radio" name="plat" id="tartiflette" value="tartiflette">
+            </div>
+
+            <!-- select -->
+            <label for="affinite">Quelle partie du développement du web préférez-vous ?</label>
+            <!-- possibilite de choisir plusieurs options avec l'attribut multiple -->
+            <select name="affinite" id="affinite">
+                <option value="back">Back</option>
+                <option value="front" selected>Front</option>
+                <option value="cicd">CI/CD</option>
+                <option value="bdd">Base de données</option>
+            </select>
+
+            <!-- textarea -->
+            <label for="article">Rédigez votre article</label>
+            <textarea name="article" id="article" cols="30" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, sint?</textarea>
+            
+            <!-- range -->
+            <div>
+                <label for="volume">Volume</label>
+                <input type="range" name="volume" id="volume" min="4" max="12" step="2">
+            </div>
+            <!-- bouton de type submit pour soumettre le formulaire -->
+            <button type="submit">Envoyer</button>
+            <button type="reset">Remise à zéro</button>
+            <button type="button">Simple bouton</button>
+
+        </form>
+
+    </section>
+
+</body>
+</html>

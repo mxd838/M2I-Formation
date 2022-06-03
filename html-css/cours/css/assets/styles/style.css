@@ -1,0 +1,94 @@
+/* Couleurs
+principal: #423647
+secondaire: #938dab
+accent : #d25157
+fond: #c1b4c2
+ */
+
+/* vh et vw : pas seulement ecran, prend en compte scroll de page */
+
+body {
+    background-image: url('../img/background.jpg');
+    /* Parallax scrolling effect : image not moving, the other elements do */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* reset du margin */
+    margin: 0;
+}
+
+article {
+    background-color: #c1b4c2cb;
+    color: #423647;
+    /* shorcut property */
+    /* margin: 5em 20vw 7em 20vw; */
+    margin-top: 5em;
+    margin-bottom: 7em;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    padding: 0.05em 2em;
+    border-radius: .5em;
+}
+
+article:hover {
+    cursor: pointer;
+}
+
+article img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+
+header {
+    color: #d25157;
+}
+
+aside {
+    background-color: #c1b4c2cb;
+    color: #423647;
+    border-radius: 0.5em;
+    width: 15vw;
+    float: left;
+    position: sticky;
+    top: 1em;
+}
+
+aside ul {
+    padding: 0.5em 1em;
+}
+
+aside ul li {
+    list-style-type: none;
+}
+
+
+footer {
+    background-color: #c1b4c2;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+
+.images img {
+    width: 20%;
+}
+
+.flex {
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+}

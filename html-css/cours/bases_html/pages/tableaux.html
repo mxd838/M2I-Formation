@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableaux</title>
+</head>
+<body>
+    <a href="../index.html">Accueil</a>
+    <h1>Tableaux</h1>
+    <p>Ils permettent d'afficher les données brutes.
+        <!-- déconseillé : interprété différemment selon les OS -->
+        <br>
+         On a tendance à éviter les tableaux dans les pages Web modernes</p>
+         <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Âge</th>
+            </tr>
+        </thead>
+        <!-- placé avant tbody pour copy sur page web, pas prendre tfoot dans sélection -->
+        <tfoot>
+            <tr>
+                <th>
+
+                </th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Trabendo</td>
+                <td>Michel</td>
+                <td>46</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Dupond</td>
+                <td>Jean</td>
+                <td rowspan="2">60</td>
+            </tr>
+                <td>2</td>
+                <td>Dupond</td>
+                <td>Jean</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td colspan="2">Batman</td>
+                <td>?</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

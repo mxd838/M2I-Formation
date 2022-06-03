@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houmous Lovers - Inscription</title>
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+<body>
+    
+        <header>
+            <h1>Houmous Lovers</h1>
+            <h2>Formulaire d'inscription</h2>
+        </header>
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Accueil</a> </li>
+                    <li><a href="#">Inscription</a> </li>
+                    <li><a href="./connexion.html">Connexion</a> </li>
+                    <li><a href="./article.html">Proposer un article</a> </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <form>
+            <fieldset>
+                <legend>Création de Compte</legend>
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" id="nom" required>
+                </div>
+                <div>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" name="prenom" id="prenom" required>
+                </div>
+                <div>
+                    <label for="mail">Email :</label>
+                    <input type="email" name="mail" id="mail" required>
+                </div>
+                <div>
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="password" name="mdp" id="mdp" required>
+                </div>
+                <div>
+                    <label for="confirm">Confirmation du mot de passe :</label>
+                    <input type="password" name="confirm" id="confirm" required>
+                </div>
+
+
+
+
+
+            </fieldset>
+            <fieldset>
+                <legend>Informations complémentaires</legend>
+
+                <label for="nv_passion">Niveau de passion du Houmous :</label>
+                <div class="radio_inputs">
+                    <div>
+                        <input type="radio" name="passion" id="" value="beaucoup" checked>
+                        <label for="beaucoup">Beaucoup</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="passion" id="" value="passionnement">
+                        <label for="passionnement">Passionément</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="passion" id="" value="trop">
+                        <label for="trop">Trop</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="don">Je veux contribuer à la grande cause du Houmous (&euro;)</label>
+                    <input type="number" name="don" id="don" min="0" step="10">
+                </div>
+
+
+                <div class="textarea_div">
+                    <label for="motiv">Lettre de motivation:</label>
+                    <textarea name="motiv" id="motiv" cols="30" rows="10">Pourquoi je veux rejoindre le mouvement...</textarea>
+                </div>
+
+
+            </fieldset>
+            <div class="checkboxes">
+                <div>
+                    <input type="checkbox" name="cluf" id="cluf">
+                    <label for="cluf">J'accepte les conditions générales d'utilisation</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="newsletter" id="newsletter" checked>
+                    <label for="newsletter">Je m'abonne évidemment à la newsletter</label>
+                </div>
+
+            </div>
+
+
+            <button type="submit">Envoyer</button>
+        </form>
+
+</body>
+</html>

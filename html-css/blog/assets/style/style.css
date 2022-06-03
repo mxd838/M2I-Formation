@@ -1,0 +1,235 @@
+:root {
+    --main: #BBB19D;
+    --secondary: #353229;
+    --accent: #93713A;
+    --background: #644726;
+}
+
+@font-face {
+    font-family: 'Cookie-Regular';
+    src: url(./../fonts/Cookie-Regular.ttf);
+}
+
+
+/* General - Layout  */
+body {
+    background-image: url('../img/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secondary);
+}
+
+header, form {
+    color: var(--accent);
+    background-color: var(--main);
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 0.5em;
+}
+
+header > h2 {
+    text-align: center;
+}
+
+nav {
+    background-color: #bbb19d9d;
+    color: var(--secondary);
+    border-radius: 0.5em;
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+nav ul {
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+footer {
+    background-color: var(--main);
+    text-align: center;
+}
+
+
+/* General - Elements */
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+    font-family:'Cookie-Regular', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+header > h2 {
+    font-family: 'Cookie-Regular', Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+a:hover {
+    color: var(--background);
+    text-decoration: underline;
+}
+
+p {
+    line-height: 1.2em;
+}
+
+
+
+/* Index */
+
+article {
+    background-color: #bbb19dda;
+    color: var(--secondary);
+    margin-top: 5em;
+    margin-bottom: 7em;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    padding: 0.05em 2em;
+    border-radius: .5em;
+}
+
+article:hover {
+    cursor: pointer;
+}
+
+article img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+article h2 {
+    margin-bottom: 0.2em;
+    color: var(--accent);
+}
+
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    background: #bbb19dda;
+    align-items: center;
+    color: var(--secondary);
+}
+fieldset{
+    width: 80%;
+    margin: 1.5em 0.5em 0 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+legend {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+input {
+    border-radius: 0.3em;
+}
+
+label {
+    text-decoration: underline;
+}
+
+fieldset div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em;
+    margin: 0.3em 0;
+}
+
+.textarea_div {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 60%;
+    margin-bottom: 1.5em;
+    border-radius: 0.3em;
+}
+
+button:hover {
+    background-color: var(--accent);
+}
+
+.connect {
+    padding: 0.3em 0;
+}
+
+.connect div, .article div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5em 0;
+}
+
+label[for="texte"] {
+    align-self: center;
+    justify-self: center;
+}
+
+#texte {
+    margin: 0.4em 0;
+    width: 60%;
+}
+
+#motiv {
+    margin-top: 0.5em;
+}
+
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkboxes div {
+    margin: 0.4em 0;
+}
+
+
+.radio_inputs label {
+    text-decoration: none;
+}
+
+input:focus {
+    background-color: #e4e1dcb6;
+}
+
+
+/* media queries */
+@media (max-width: 969px){
+    nav ul {
+        padding: 0.5em 1em;
+        display: flex;
+        width: 40%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+

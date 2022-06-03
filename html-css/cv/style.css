@@ -1,0 +1,164 @@
+/* === general layout ===  */
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #418791;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 5%;
+    min-height: 850px;
+}
+
+header, section {
+    margin: 20px 10px;
+}
+
+div {
+    margin: 5px auto;
+}
+
+/* === media query === */
+@media (max-width: 584px){
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profil {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+
+/* === general elements ===  */
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    color: #37abbd;
+    font-size: 45px;
+}
+
+h2 {
+    text-align: center;
+    color: #48c5d9;
+}
+
+h3 {
+    margin: 5px 0;
+    color: #48c5d9;
+}
+
+.date {
+    font-weight: bold;
+}
+
+span {
+    color:#48c5d9;
+}
+a {
+    text-decoration: none;
+    color: #418791;
+}
+
+a:hover {
+    color: #37abbd;
+}
+
+/* a:visited {
+    color: gray;
+} */
+dt {
+    margin-left: 30px;
+    color:#48c5d9;
+}
+
+dd {
+    margin-left: 60px;
+}
+/* === header ===  */
+header {
+    border-radius: 5%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    padding-bottom: 15px;
+}
+
+.profil {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.profil img {
+    border-radius: 50%;
+    width: 175px;
+    height: auto;
+    margin-top: 5px;
+    border: 1px solid #37abbd;
+}
+
+header ul {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* === section === */
+section h2 {
+    text-decoration: underline;
+    line-height: 150%;
+}
+
+section div {
+    margin: 15px 0;
+}
+
+.presentation p, .presentation ul, .competences ul, .experiences ul {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.presentation p {
+    text-align: justify;
+}
+
+.presentation span {
+    margin-right: 10px;
+}
+
+/* === footer ===  */
+footer {
+    width: 80%;
+    margin: 0 auto;
+    background: #37abbd;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding: 20px 5px;
+}
