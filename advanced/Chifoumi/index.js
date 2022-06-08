@@ -11,6 +11,7 @@ const confirmButton = document.querySelector('.confirm')
 const lessButton = document.querySelector('.less')
 const moreButton = document.querySelector('.more')
 const roundsSelection = document.querySelector('.selection')
+const computerChoiceSelection = document.querySelector('.computerChoice')
 
 // Variables
 let userScore = 0
@@ -78,6 +79,7 @@ const setComputerChoice = () => {
     const computerChoices = ['rock', 'paper', 'scissors']
     const computerChoice = computerChoices[Math.floor(Math.random() * 3)]
     computerChoiceDisplay.src = `./img/${computerChoice}.png`
+    computerChoiceDisplay.style.backgroundColor = 'white'
 
     return computerChoice
 }
@@ -91,22 +93,32 @@ const resetGame = () => {
     computerScore = 0
     computerScoreDisplay.innerText = 0
     numberOfRounds = 0
-    roundsSelection.style.display = 'block'
+    roundsSelection.style.display = 'flex'
     resultSentence.innerText = 'Jouons encore !'
+    document.querySelector('.computerChoiceImg').src = './img/questionMark.png'
+    userChoiceSelection.style.backgroundColor = '#333'
+    computerChoiceSelection.style.backgroundColor = '#333'
+    resultSentence.style.color = 'white'
+
 }
 
 const checkEndgame = () => {
 
     if (numberOfRounds === roundLimit){
+        userChoiceSelection.style.backgroundColor = 'gray'
+        computerChoiceSelection.style.backgroundColor = 'gray'
         if (userScore > computerScore){
             resultSentence.innerText = "Le joueur a gagné la partie"
+            resultSentence.style.color = '#5fed74'
         } else {
             resultSentence.innerText = "L'ordinateur a gagné la partie"
+            resultSentence.style.color = '#ed5f5f'
         }
         return true
     }
     return false
 }
+
 
 
 const playGame = (e) => {
@@ -126,13 +138,20 @@ const playGame = (e) => {
             userScoreDisplay.innerText = userScore
             resultSentence.innerText = 'Le joueur a gagné le round'
             numberOfRounds++
+            userChoiceSelection.style.backgroundColor = '#5fed74'
+            computerChoiceSelection.style.backgroundColor = '#ed5f5f'
         } else if ( userChoice === computerChoice){
             resultSentence.innerText = 'Match nul'
+            userChoiceSelection.style.backgroundColor = 'black'
+            computerChoiceSelection.style.backgroundColor = 'black'
         } else {
             computerScore++
             computerScoreDisplay.innerText = computerScore
             resultSentence.innerText = "L'ordinateur a gagné le round"
             numberOfRounds++
+            userChoiceSelection.style.backgroundColor = '#ed5f5f'
+            computerChoiceSelection.style.backgroundColor = '#5fed74'
+
         }
     }
     checkEndgame()
