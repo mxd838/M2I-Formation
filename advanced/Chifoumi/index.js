@@ -7,7 +7,8 @@ const computerScoreDisplay = document.querySelector('.computerScore')
 const userScoreDisplay = document.querySelector('.userScore')
 const resultSentence = document.querySelector('.resultSentence')
 const resetBtn = document.querySelector('.reset')
-
+const displayNumberOfRounds = document.querySelector('.numberOfRounds')
+const confirmButton = document.querySelector('.confirm')
 
 // Variables
 let userScore = 0
@@ -16,8 +17,11 @@ let roundLimit = 3
 let numberOfRounds = 0
 
 
-// Set the default value for the number of rounds
-
+// for the reset
+// --- put the choice of rounds in a div setNumberOfRounds
+// --- set the roundlimit to the value retrieved
+// --- once the value chosen and confirmed (via button) 
+// --- turn the div setNumberOfRounds to display none
 // Functions
 const setComputerChoice = () => {
     const computerChoices = ['rock', 'paper', 'scissors']
@@ -36,30 +40,7 @@ const resetGame = () => {
     numberOfRounds = 0
 }
 
-const playGame = (e) => {
-    const userChoice = setUserChoice(e)
-    const computerChoice = setComputerChoice()
-    // console.log(`Computer : ${computerChoice} - User : ${userChoice}`)
-    
-    if ((userChoice === 'rock' && computerChoice === 'scissors') 
-    || (userChoice === 'paper' && computerChoice === 'rock')
-    || (userChoice === 'scissors' && computerChoice === 'paper') )
-    {
-        userScore++
-        userScoreDisplay.innerText = userScore
-        resultSentence.innerText = 'Le joueur a gagné le round'
-    } else if ( userChoice === computerChoice){
-        // console.log('Draw')
-        resultSentence.innerText = 'Match nul'
-    } else {
-        computerScore++
-        computerScoreDisplay.innerText = computerScore
-        resultSentence.innerText = "L'ordinateur a gagné le round"
-    }
-    
-    // console.log(`${computerScore} - ${userScore}`)
-    
-    numberOfRounds++
+const checkEndgame = () => {
 
     if (numberOfRounds === roundLimit){
         if (userScore > computerScore){
@@ -68,6 +49,34 @@ const playGame = (e) => {
             resultSentence.innerText = "L'ordinateur a gagné la partie"
         }
     }
+}
+
+
+const playGame = (e) => {
+    const userChoice = setUserChoice(e)
+    const computerChoice = setComputerChoice()
+    
+    if ((userChoice === 'rock' && computerChoice === 'scissors') 
+    || (userChoice === 'paper' && computerChoice === 'rock')
+    || (userChoice === 'scissors' && computerChoice === 'paper') )
+    {
+        userScore++
+        userScoreDisplay.innerText = userScore
+        resultSentence.innerText = 'Le joueur a gagné le round'
+        numberOfRounds++
+    } else if ( userChoice === computerChoice){
+        // console.log('Draw')
+        resultSentence.innerText = 'Match nul'
+    } else {
+        computerScore++
+        computerScoreDisplay.innerText = computerScore
+        resultSentence.innerText = "L'ordinateur a gagné le round"
+        numberOfRounds++
+    }
+    
+    
+    checkEndgame()
+
 }
 // Event listeners
 choicePaper.addEventListener('click', playGame)

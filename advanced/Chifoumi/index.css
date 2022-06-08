@@ -13,6 +13,12 @@ img {
 div {
     border: 1px solid blueviolet;
 }
+
+.setNumberOfRounds {
+    display: flex;
+    justify-content: center;
+}
+
 .gameVisuals {
     display: flex;
     justify-content: space-around;
