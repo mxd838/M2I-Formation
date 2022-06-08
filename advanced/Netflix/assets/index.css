@@ -66,6 +66,9 @@ body {
     background: #000;
 }
 
+.menuContainer button i {
+    font-size: 1.8em;
+}
 
 /* === Media Queries === */
 @media (max-width: 752px){

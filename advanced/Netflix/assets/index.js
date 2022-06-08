@@ -5,7 +5,6 @@ const container = document.createElement('div')
 container.classList.add('container')
 body.appendChild(container)
 
-
 // MENU
 // -- menu container
 const menuContainer = document.createElement('div')
@@ -23,11 +22,9 @@ const navList = document.createElement('ul')
 navList.classList.add('navList')
 menuContainer.appendChild(navList)
 
-
 // ----- Nav list items
 const navItems = ['Accueil','Séries', 'Films', 'Nouveautés les plus regardées', 'Ma liste']
 for (let navItem in navItems){
-    // console.log(navItem)
     const listMenuItem = document.createElement('li')
     listMenuItem.innerText = navItems[navItem]
     navList.appendChild(listMenuItem)
@@ -37,7 +34,6 @@ for (let navItem in navItems){
 const searchButton = document.createElement('button')
 searchButton.innerHTML = '<i class="fa fa-search" aria-hidden="true"></i>'
 menuContainer.appendChild(searchButton)
-
 
 // GALLERIES
 const galleryTitles = ['Séries', 'Tendances actuelles', 'Revoir']
@@ -72,3 +68,8 @@ for (let i = 0; i < 3; i++){
     }    
     container.appendChild(galleryContainer)
 }
+
+// responsive
+// window.addEventListener('resize', () => {
+    
+// })
