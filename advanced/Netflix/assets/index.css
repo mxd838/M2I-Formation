@@ -1,0 +1,78 @@
+/* === General Layout === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+}
+
+.container {
+    color: #fff;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.menuContainer {
+    display: flex;
+    align-items: center;    
+}
+
+.navList {
+    display: flex;
+    list-style-type: none;
+}
+
+.galleryContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 2.5em 0;
+}
+
+
+.imagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+
+
+/* === Elements === */
+.siteTitle {
+    text-transform: uppercase;
+    margin: 1em 0.3em;
+    padding-right: 1.5em;
+    color: red;
+}
+
+.navList li {
+    padding: 0.3em 1em;
+}
+
+.navList li:hover {
+    text-decoration: underline;
+}
+
+.menuContainer button {
+    margin-left: auto;
+    margin-right: 1em;
+    color: white;
+    background: #000;
+}
+
+
+/* === Media Queries === */
+@media (max-width: 752px){
+    .menuContainer {
+        justify-content: space-around;
+    }
+    .navList {
+        flex-direction: column;
+    }
+}

@@ -20,3 +20,6 @@ while (userGuess !== randomItemPrice){
         console.log('Bravo, vous avez gagné un joli dictionnaire')
     }
 }
+
+
+
