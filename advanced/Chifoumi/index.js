@@ -58,7 +58,6 @@ const choiceScissors = document.querySelector('.scissors')
 
 // Functions
 const hideNumberOfRoundsChoice = () => {
-    console.log(roundsSelection.style)
     roundsSelection.style.display = 'none'
 }
 
