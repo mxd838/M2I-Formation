@@ -81,7 +81,14 @@ const createCardTemplate = (question) => {
         // creation of the label
         const answerLabel = document.createElement('label')
         answerLabel.setAttribute('for', `id${i}`)
-        answerLabel.innerText = possibleAnswers[M]
+        // Each answer must be unique 
+        // && the order of the answers must be randomized
+        // --- select randomly one of the answers
+        // --- find the index of that answer
+        // --- remove the element of that index 
+        // --- the method used for that must transform the original array
+        // ------ in order to be able to work with the array in the next iteration
+        answerLabel.innerText = possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)]
         // insertion of the label
         singleAnswerContainer.appendChild(answerLabel)
     }
