@@ -18,3 +18,6 @@ for (let i = 0; i < 4; i++){
         // container.appendChild(cardContainer)
     }
 }
+
+
+// resolve create four containers and four cards by container
