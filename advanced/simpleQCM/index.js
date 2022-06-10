@@ -1,15 +1,124 @@
-/*
-    {"correctAnswer":"One Direction","incorrectAnswers":["Level 42","Orchestral Manoeuvres in the Dark","Blur"],"question":"Which band includes 'Zayn Malik'?","tags":["people","music"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Science","id":"6242cafdd543524f1b19c901","correctAnswer":"A flock","incorrectAnswers":["A fall","A gang","A yoke"],"question":"What is the word for a group of birds?","tags":["birds","words","general_knowledge","science"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Arts & Literature","id":"622a1c367cc59eab6f950154","correctAnswer":"Charles Darwin","incorrectAnswers":["Kurt Vonnegut","Thomas Hardy","Ernest Rutherford"],"question":"Who wrote the book \"The Origin of Species\"?","tags":["arts_and_literature"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Geography","id":"623741f7cb85f7ce9e949d9c","correctAnswer":"Lisbon","incorrectAnswers":["Santo Domingo","Suva","Oslo"],"question":"What is the capital city of Portugal?","tags":["geography"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Geography","id":"625e9e30796f721e95543f45","correctAnswer":"Red with five yellow stars in the top left.","incorrectAnswers":["Blue with a yellow cross extending to the edges.","Red with a black two headed eagle in the center.","Green, with large white script and a sword."],"question":"What does the flag of China look like?","tags":["flags","china","asia","geography"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Arts & Literature","id":"622a1c397cc59eab6f950eaa","correctAnswer":"J. K. Rowling","incorrectAnswers":["Christopher Tolkien","Philip Pullman","C. S. Lewis"],"question":"Which author wrote 'Harry Potter and the Prisoner of Azkaban'?","tags":["arts_and_literature"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Geography","id":"62602d214b176d54800e3c81","correctAnswer":"Austria","incorrectAnswers":["Bulgaria","Sweden","Ireland"],"question":"Where would you find the city of Vienna?","tags":["cities","europe","general_knowledge","geography"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Society & Culture","id":"622a1c3c7cc59eab6f951889","correctAnswer":"Apples","incorrectAnswers":["Bananas","Cherries","Carrots"],"question":"What Would You Traditionally 'Bob' For At Halloween?","tags":["halloween","traditions","food","society_and_culture"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Music","id":"622a1c397cc59eab6f950dc1","correctAnswer":"The Beatles","incorrectAnswers":["Deep Purple","Feeder","Uriah Heep"],"question":"Which band includes 'Paul McCartney'?","tags":["music"],"type":"Multiple Choice","difficulty":"easy"},{"category":"Music","id":"625063b1e12f6dec240bdf7b","correctAnswer":"Ice Ice Baby","incorrectAnswers":["I Want Candy","Baby Got Back","We're Not Gonna Take It"],"question":"Vanilla Ice had a one hit wonder in 1990 with which song?","tags":["songs","one_hit_wonders","1990's","general_knowledge","music"],"type":"Multiple Choice","difficulty":"easy"}
-*/
+import { data } from "./data.js";
 
+// Get elements
+const container = document.querySelector('.container')
+const validateBtn = document.querySelector('.validate')
 
-const data = [
-    {
-        question: "Which band includes 'Zayn Malik'?",
-        answers: [
-            {
-                
-            }
-        ]
+// Creation of the first element
+// -- Template -----------------
+// --- creation of the card container
+const cardContainer = document.createElement('div')
+cardContainer.classList.add('cardContainer')
+// --- insertion of the card container
+container.appendChild(cardContainer)
+// --- creation of the question 
+const questionText = document.createElement('h4')
+questionText.classList.add('questionText')
+questionText.innerText = data[0].question
+// --- insertion of the question
+cardContainer.appendChild(questionText)
+// --- creation of the answers container
+const answersContainer = document.createElement('div')
+answersContainer.classList.add('answersContainer')
+// --- insertion of the answers container
+cardContainer.appendChild(answersContainer)
+const firstQuestionAnswers = data[0].answers
+for (let i = 0; i < firstQuestionAnswers.length; i++){
+    // --- creation of a single answer container
+    const answerContainer = document.createElement('div')
+    answerContainer.classList.add('answerContainer')
+    // --- insertion of a single answer container
+    answersContainer.appendChild(answerContainer)
+    // --- creation of the radio input
+    const answerChoiceInput = document.createElement('input')
+    answerChoiceInput.setAttribute('type','radio')
+    if ( i === 0){
+        answerChoiceInput.setAttribute('checked', true)
     }
-]
+    answerChoiceInput.setAttribute('name','question1')
+    answerChoiceInput.setAttribute('value',firstQuestionAnswers[i].text)
+    answerChoiceInput.setAttribute('id', `id${i}`)
+    // --- insertion of the radio input
+    answerContainer.appendChild(answerChoiceInput)
+    // --- creation of the label
+    const answerLabel = document.createElement('label')
+    answerLabel.setAttribute('for',`id${i}`)
+    answerLabel.innerText = firstQuestionAnswers[i].text
+    // --- insertion of the label
+    answerContainer.appendChild(answerLabel)
+}
+
+// Get input elements generated
+// const firstAnswer = document.getElementById('id0')
+// const secondAnswer = document.getElementById('id1')
+// const thirdAnswer = document.getElementById('id2')
+
+// Variables
+const correctAnswersArray = []
+const userAnswersArray = []
+
+// Functions 
+// --- creation of the array of correct answers
+const createCorrectAnswersArray = () => {
+    for (let element of data){
+        for(let i = 0; i < element.answers.length; i++){
+            if (element.answers[i].correct === true){
+                correctAnswersArray.push(element.answers[i].text)
+            }
+        }
+    }
+}
+
+console.log(correctAnswersArray)
+
+// --- functions called by the event listener
+const nextQuestion = () => {
+    console.log('next')
+    // register the user response in an array
+    const choices = document.querySelectorAll("input[type='radio']")
+    // console.log(choices)
+    for (let choice of choices){
+        // console.log(choice)
+        if (choice.checked === true){
+            userAnswersArray.push(choice.value)
+        }
+    }
+    console.log(userAnswersArray)
+}
+
+const endQuizz = () => {
+    console.log('end')
+}
+
+const resetQuizz = () => {
+    console.log('reset')
+}
+
+const handleAnswer = (e) => {
+    // three values possible for validateBtn.innertext
+    // --- suivant 
+    // ---------- register the user response
+    // --- valider / terminer questionnaire
+    // ----------- display with all the questions, the user answers and the correct answers
+    // --- rejouer
+    // ----------- after the results page, offer the possibility to replay
+    switch (e.target.innerText){
+        case 'Suivant':
+            nextQuestion()
+            break
+        case 'Valider':
+            endQuizz()
+            break
+        case 'Rejouer':
+            resetQuizz()
+            break
+        default :
+            console.log('Erreur')
+    }
+}
+
+// Function call
+createCorrectAnswersArray()
+
+// Event listener
+validateBtn.addEventListener('click', handleAnswer)

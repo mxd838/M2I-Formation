@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    border: 1px solid black;
+}
+
+.cardContainer {
+    border: 1px solid red;
+}
+
+.questionText {
+    border: 1px solid blue;
+}
+
+.answersContainer {
+    border: 1px solid green;
+}
+
+.answerContainer {
+    border: 1px solid coral;
+}
+
+.validate {
+    border: 1px solid aqua;
+    cursor: pointer;
+}
