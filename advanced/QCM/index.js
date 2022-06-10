@@ -28,71 +28,7 @@ const confirmBtn = document.querySelector('.confirmBtn')
 const userAnswers = []
 let questionNumber = 0
 
-const createCardTemplate = (questionItem) => {
-    console.log('youhou')
-    // create div
-    const cardContainer  = document.createElement('div')
-    cardContainer.classList.add('cardContainer')
-    // insert cardContainer
-    container.appendChild(cardContainer)
-    // create the question
-    fillCardQuestion(cardContainer, questionItem.question)
-    // create answers container
-    const answersContainer = document.createElement('div')
-    answersContainer.classList.add('answersContainer')
-    // insert answers container
-    cardContainer.appendChild(answersContainer)
-    // // recreate an array of all the possible answers
-    // const possibleAnswers = [question.correctAnswer]
-    // for (let i = 0; i < question.incorrectAnswers.length; i++){
-    //     // console.log(question.incorrectAnswers[i])
-    //     possibleAnswers.push(question.incorrectAnswers[i])
-    // }
-    // for (let i = 0; i < possibleAnswers.length; i++){
-    //     // creation of the container of the answer and the label
-    //     const singleAnswerContainer = document.createElement('div')
-    //     singleAnswerContainer.classList.add('singleAnswerContainer')
-    //     // insertion of the single answer container
-    //     answersContainer.appendChild(singleAnswerContainer)
-    //     // creation of the radio button
-    //     const answerInput = document.createElement('input')
-    //     answerInput.setAttribute('type','radio')
-    //     answerInput.setAttribute('name', 'question')
-    //     answerInput.setAttribute('id', `id${i}`)
-    //     if (answerInput.getAttribute('id') === 'id0'){
-    //         answerInput.setAttribute('data-correct','true')
-    //     } else {
-    //         answerInput.setAttribute('data-correct','false')
-    //     }
-    //     // insertion of the radio button
-    //     singleAnswerContainer.appendChild(answerInput)
-    //     // creation of the label
-    //     const answerLabel = document.createElement('label')
-    //     answerLabel.setAttribute('for', `id${i}`)
-    //     answerLabel.innerText = possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)]
-    //     // insertion of the label
-    //     singleAnswerContainer.appendChild(answerLabel)
-    //     console.log(answerInput)
-    // }
-    // // fill the title and answers with the data retrieved
-    // console.log(possibleAnswers)
-}
 
-/**
- * Fill the template with the current question
- * @param {htmlElement} questionContainer 
- * @param {object} question 
- */
-const fillCardQuestion = (questionContainer, questionText) => {
-    console.log(questionContainer)
-    console.log(questionText)
-    // create title (question label)
-    // const cardQuestion = document.createElement('h4')
-    // cardQuestion.classList.add('question')
-    // cardQuestion.innerText = question.question
-    // insert question label
-    // questionContainer.appendChild(cardQuestion)
-}
 
 
 /**
@@ -101,32 +37,19 @@ const fillCardQuestion = (questionContainer, questionText) => {
  * @returns {array} randomizedArray
  */
 const randomizeArray = (answersArray) => {
-    console.log(answersArray)
     for (let i = answersArray.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let temp = answersArray[i];
         answersArray[i] = answersArray[j];
         answersArray[j] = temp;
     }
-    console.log(answersArray)
+    return answersArray
 }
 
-const fillCardAnswers = () => {
 
-}
-
-const startGame = (questions) => {
-        // questions.forEach(question => {
-        //     createCardTemplate(question)
-        // })        
-    // create first question
-    createCardTemplate(questions[questionNumber])
-}
 
 
 const createAnswersArray = (correctAnswerString, incorrectAnswersArray) => {
-    // console.log(correctAnswerString)
-    // console.log(incorrectAnswersArray)
     const answersArray = []
     answersArray.push({
         stringAnswer: correctAnswerString,
@@ -138,10 +61,13 @@ const createAnswersArray = (correctAnswerString, incorrectAnswersArray) => {
             correct: false
         })
     }
-    randomizeArray(answersArray)
+    const randomizedAnswersArray = randomizeArray(answersArray)
+    return randomizedAnswersArray
 }
+
+
+
 const transformData = (arrayQuestions, apiQuestions) => {
-    // console.log(apiQuestions)
     for (let i = 0 ; i < apiQuestions.length; i++){
         arrayQuestions.push({
             questionLabel : apiQuestions[i].question,
@@ -149,6 +75,51 @@ const transformData = (arrayQuestions, apiQuestions) => {
         })
 
     }
+    return arrayQuestions
+}
+
+const createFirstQuestion = (firstQuestionObject) => {
+    console.log(firstQuestionObject)
+    const questionContainer = document.createElement('div')
+    questionContainer.classList.add('questionContainer')
+    container.appendChild(questionContainer)
+    // create and add question
+    const questionLabel = document.createElement('h4')
+    questionLabel.innerText = firstQuestionObject.questionLabel
+    questionContainer.appendChild(questionLabel)
+    // console.log(questionLabel)
+    // create container of all the answers
+    const answersContainer = document.createElement('div')
+    answersContainer.classList.add('answersContainer')
+    // create and add answers
+    for (let i = 0; i < firstQuestionObject.questionAnswers.length; i++){
+        // create a container for the input radio and its label
+        const answerContainer = document.createElement('div')
+        answerContainer.classList.add('answerContainer')
+        // create the radio button
+        const answerRadio = document.createElement('input')
+        answerRadio.setAttribute('type','radio')
+        answerRadio.setAttribute('name', 'question0')
+        answerRadio.setAttribute('id', `id${i}`)
+        answerRadio.setAttribute('value', firstQuestionObject.questionAnswers[i].stringAnswer )
+        if (firstQuestionObject.questionAnswers[i].correct === true){
+            answerRadio.setAttribute('data-correct', 'true' )
+        } else {
+            answerRadio.setAttribute('data-correct', 'false')
+        }
+        if (i = 0){
+            answerRadio.setAttribute('required', 'on')
+        }
+        // create the label associated with the radio button
+        const answerLabel = document.createElement('label')
+        answerLabel.setAttribute('for', `id${i}`)
+        // insert the radio button
+        answerContainer.appendChild(answerRadio)
+        answerContainer.appendChild(answerLabel)
+        answersContainer.appendChild(answerContainer)
+        // console.log(answerRadio)
+    }
+
 }
 
 fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=easy')
@@ -163,8 +134,9 @@ fetch('https://the-trivia-api.com/api/questions?limit=10&difficulty=easy')
     })
     .then(questions => {
         const arrayQuestions = []
-        transformData(arrayQuestions, questions)
+        return transformData(arrayQuestions, questions)
     })
-    // transform object received to make it easier to use for the app
-    // .then(questions => startGame(questions))
-
+    // .then(transformedArray => console.log(transformedArray))
+    .then(transformedArray => createFirstQuestion(transformedArray[0]))
+    // display the first question
+    // next question with validate button
