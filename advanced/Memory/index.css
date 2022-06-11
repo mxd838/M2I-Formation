@@ -21,3 +21,7 @@
     height: 150px;
     width: 100px;
 }
+
+img {
+    content: url('./img/questionMark.png')
+}

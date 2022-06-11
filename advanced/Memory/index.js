@@ -40,21 +40,40 @@ const cardContainers = document.querySelectorAll('.cardContainer')
 
 const imagesSrc = ['./img/afghan.png','./img/albania.png', './img/algeria.png', './img/andorra.png', './img/angola.png', '.img/antigua-barbada.png', './img/argentina.png', './img/bangladesh.png']
 
-const imagesObjectsArray = []
 
-// const createImagesObjects = () => {
-//     for (let imageSrc in imagesSrc){
-//         console.log(imageSrc)
-//         const imgObject = {
-//             id: `imageSrc`,
-//             recto: 
-//         }
-//     }
-// }
+const createImagesObjects = () => {
+    const imagesObjectsArray = []
+    for (let imageSrc in imagesSrc){
+        const imgObject = {
+            id: `imageId${imageSrc}`,
+            verso: imagesSrc[imageSrc],
+            returned: false
+        }
+        imagesObjectsArray.push(imgObject)
+    }
+    return imagesObjectsArray
+}
+
+
+const createImagesElements = () => {
+    console.log('create img elts')
+    for (let imgData of imagesData){
+        console.log(imgData)
+        const imgToGuess = document.createElement('img')
+        imgToGuess.setAttribute('src', './img/questionMark.png')
+    }
+}
+
+const randomizeImagesOrder = () => {
+    // order of the images in the divs is random
+}
+
 const placeImages = () => {
     cardContainers.forEach( imageContainer => {
         console.log(imageContainer)
     })
 }
 
+// Function calls
+const imagesData = createImagesObjects()
 createImagesElements()

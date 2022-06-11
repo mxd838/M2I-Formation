@@ -1,0 +1,22 @@
+.container {
+    width: 50%;
+    height: 50vh;
+    margin: 3em auto;
+    border : 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test {
+    width: 80%;
+    height: 80%;
+    margin: 0.3em;
+    border: 1px solid coral;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
