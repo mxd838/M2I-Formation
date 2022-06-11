@@ -1,3 +1,14 @@
+// -- make grid : done
+// -- get images : 
+// -- return cards :
+// -- compare cards :
+// -- cards recognized face visible :
+// -- endgame :
+// -- random placement of the images at load:
+// -- timer for the completion
+// -- let the user choose the size of the grid :
+
+
 // memory de 16 cartes
 // --- bonus : laisser l'user choisir la taille de la grille
 // une div pour chacune des cartes
@@ -7,17 +18,43 @@
 // s'ils sont différents, les retourner au bout d'un petit temps
 
 
-const container = document.getElementById('.container')
+const container = document.querySelector('.container')
 
 
-// Creation of the cards
+// Create images grid
 for (let i = 0; i < 4; i++){
-    for (let j = 0; j < 4; j++){
+    const cardRow = document.createElement('div')
+    cardRow.classList.add('row')
+    cardRow.classList.add(`row${i}`)
+    container.appendChild(cardRow)
+    for (let j = 0; j < 4; j++) {
         const cardContainer = document.createElement('div')
-        console.log(cardContainer)
-        // container.appendChild(cardContainer)
+        cardContainer.classList.add('cardContainer')
+        cardContainer.classList.add(`cell${i}${j}`)
+        cardRow.appendChild(cardContainer)
     }
 }
 
+// Get elements generated
+const cardContainers = document.querySelectorAll('.cardContainer')
 
-// resolve create four containers and four cards by container
+const imagesSrc = ['./img/afghan.png','./img/albania.png', './img/algeria.png', './img/andorra.png', './img/angola.png', '.img/antigua-barbada.png', './img/argentina.png', './img/bangladesh.png']
+
+const imagesObjectsArray = []
+
+// const createImagesObjects = () => {
+//     for (let imageSrc in imagesSrc){
+//         console.log(imageSrc)
+//         const imgObject = {
+//             id: `imageSrc`,
+//             recto: 
+//         }
+//     }
+// }
+const placeImages = () => {
+    cardContainers.forEach( imageContainer => {
+        console.log(imageContainer)
+    })
+}
+
+createImagesElements()

@@ -75,17 +75,15 @@ const fillTemplate = () => {
         const currentInput = document.getElementById(`id${i}`)
         const currentLabel = document.getElementById(`label${i}`)
         currentInput.setAttribute('value',questionAnswers[i].text)
-        currentInput.innerText = questionAnswers[i].text
-
+        currentLabel.innerText = questionAnswers[i].text
+        currentInput.setAttribute('value',questionAnswers[i].text)
     }
-    // answerLabel.innerText = questionAnswers[i].text
-    // answerChoiceInput.setAttribute('value',questionAnswers[i].text)
-    // answerLabel.innerText = questionAnswers[i].text
 }
-
 
 // Call the filling function when page loads for the first question
 fillTemplate()
+
+
 // Functions 
 const createCorrectAnswersArray = () => {
     for (let element of data){
@@ -97,7 +95,7 @@ const createCorrectAnswersArray = () => {
     }
 }
 
-console.log(correctAnswersArray)
+// console.log(correctAnswersArray)
 
 // --- functions called by the event listener
 /**
@@ -116,20 +114,34 @@ const registerUserAnswer = () => {
     console.log(userAnswersArray)
 }
 const generateNewQuestion = () => {
-
+    fillTemplate()
 }
 
-const nextQuestion = () => {
+const nextQuestion = (e) => {
     console.log('next')
-    if (userAnswersArray.length === questionNumber){
+    // if (userAnswersArray.length === questionNumber){
+    //     registerUserAnswer()
+    // }
+    // if (questionNumber === data.length - 2 ){
+    //     // console.log(e.target.innerText)
+    //     e.target.innerText = 'Valider'
+    // } else {
+    //     questionNumber++
+    //     generateNewQuestion()
+    // }
+    if (userAnswersArray.length === questionNumber && questionNumber === data.length - 2 ){
         registerUserAnswer()
+        e.target.innerText = 'Valider'
+    } else {
+        registerUserAnswer()
+        questionNumber++
+        generateNewQuestion()
     }
-    generateNewQuestion()
-    questionNumber++
 }
 
 const endQuizz = () => {
     console.log('end')
+    console.log(userAnswersArray)
 }
 
 const resetQuizz = () => {
@@ -147,7 +159,7 @@ const handleAnswer = (e) => {
     // ----------- after the results page, offer the possibility to replay
     switch (e.target.innerText){
         case 'Suivant':
-            nextQuestion()
+            nextQuestion(e)
             break
         case 'Valider':
             endQuizz()

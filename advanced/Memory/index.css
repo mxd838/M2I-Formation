@@ -1,6 +1,23 @@
-.container div {
-    width: 100px;
-    height: 200px;
+
+.container {
+    width: 80%;
     border: 1px solid black;
+    margin: 1.5em auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    border: 1px solid red;
     margin: 0.5em;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardContainer {
+    border: 1px solid blue;
+    margin: 0.2em;
+    height: 150px;
+    width: 100px;
 }
