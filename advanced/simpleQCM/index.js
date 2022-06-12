@@ -10,7 +10,7 @@ const correctAnswersArray = []
 const userAnswersArray = []
 let numberOfChoicesLength = data[questionNumber].answers.length
 
-
+// Functions
 // Create template
 const createTemplate = () => {
     // --- creation of the card container
@@ -66,7 +66,7 @@ const answerChoiceThree = document.getElementById('id2')
 const labelThree = document.getElementById('label2')
 
 
-// Fill the template with the first question
+// Fill the template with the question content
 const fillTemplate = () => {
 
     questionText.innerText = data[questionNumber].question
@@ -95,12 +95,7 @@ const createCorrectAnswersArray = () => {
     }
 }
 
-// console.log(correctAnswersArray)
 
-// --- functions called by the event listener
-/**
- * Register user answer
- */
 const registerUserAnswer = () => {
     // register the user response in an array
     const choices = document.querySelectorAll("input[type='radio']")
@@ -118,20 +113,15 @@ const generateNewQuestion = () => {
 }
 
 const nextQuestion = (e) => {
-    console.log('next')
-    // if (userAnswersArray.length === questionNumber){
-    //     registerUserAnswer()
-    // }
-    // if (questionNumber === data.length - 2 ){
-    //     // console.log(e.target.innerText)
-    //     e.target.innerText = 'Valider'
-    // } else {
-    //     questionNumber++
-    //     generateNewQuestion()
-    // }
-    if (userAnswersArray.length === questionNumber && questionNumber === data.length - 2 ){
-        registerUserAnswer()
+
+     if (userAnswersArray.length === questionNumber && questionNumber === data.length - 2 ){
+        // registerUserAnswer()
+        questionNumber++
+        generateNewQuestion()
         e.target.innerText = 'Valider'
+     }
+    else if (userAnswersArray.length === questionNumber && questionNumber === data.length - 1 ){
+        registerUserAnswer()
     } else {
         registerUserAnswer()
         questionNumber++
@@ -141,7 +131,8 @@ const nextQuestion = (e) => {
 
 const endQuizz = () => {
     console.log('end')
-    console.log(userAnswersArray)
+    registerUserAnswer()
+    // console.log(userAnswersArray)
 }
 
 const resetQuizz = () => {
@@ -149,14 +140,7 @@ const resetQuizz = () => {
 }
 
 const handleAnswer = (e) => {
-    // three values possible for validateBtn.innertext
-    // --- suivant 
-    // ---------- register the user response
-    // ---------- generate and display the next question
-    // --- valider / terminer questionnaire
-    // ----------- display with all the questions, the user answers and the correct answers
-    // --- rejouer
-    // ----------- after the results page, offer the possibility to replay
+
     switch (e.target.innerText){
         case 'Suivant':
             nextQuestion(e)
