@@ -76,3 +76,26 @@ niveaux (débutant/initiation - intermédiaire - expert)
 Objectif:
 - verbe d'action infinitif + COD + QCD (Qualité, Coûts, Délai)
 - SMART
+
+estimation
+chiffrage 
+charges
+
+estimatinos
+expérience
+vécu
+capitalisation -> abaques
+difficultés, réalisation -> planning poker -> suite de Fibonacci
+loi de Pareto
+
+
+Projets - 5 phases
+1 - Beson / Emergence
+2 - Faisabilité
+3 - Préparation / Conception
+4 - Réalisation
+5 - Capitalisation
+
+1 & 2 : cadrage
+3 & 4 : mise en oeuvre
+5 : rex (retour d'expérience)
