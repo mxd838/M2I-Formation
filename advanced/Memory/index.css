@@ -20,8 +20,13 @@
     margin: 0.2em;
     height: 150px;
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
-    content: url('./img/questionMark.png')
+    width: 100%;
+    height: auto;
 }
+
