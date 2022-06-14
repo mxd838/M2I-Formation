@@ -34,6 +34,7 @@ for (let i = 0; i < 4; i++){
         cardRow.appendChild(cardContainer)
         const questionMarkImg = document.createElement('img')
         questionMarkImg.setAttribute('src', './img/questionMark.png')
+        questionMarkImg.classList.add('cell')
         questionMarkImg.classList.add(`cell${imageNumber}`)
         cardContainer.appendChild(questionMarkImg)
         imageNumber++
@@ -42,6 +43,7 @@ for (let i = 0; i < 4; i++){
 
 // Get elements generated
 const imgCells = document.querySelectorAll('.cell')
+console.log(imgCells)
 
 // console.log(imgCells)
 
@@ -55,11 +57,15 @@ const randomizeImages = () => {
         let temp = completeImagesArray[i];
         completeImagesArray[i] = completeImagesArray[j];
         completeImagesArray[j] = temp;
+        // console.log(imgCells[i])
+        imgCells[i].setAttribute('data-src', completeImagesArray[i])
+        // console.log(imgCells[i])
     }
-    // insert data-src attribute for each image and use it to toggle src when click
+    // insert data-src attribute for each image and use it to toggle src when cl
     return completeImagesArray
 }
 
+randomizeImages()
 
 const placeImages = () => {
     const randomizedArray = randomizeImages()
@@ -67,8 +73,12 @@ const placeImages = () => {
 }
 
 const toggleImage = (e) => {
-    console.log(e.target.className)
-    // e.target.src === './img/questionMark.png' ? ``
+    // console.log(e.target.dataset.src)
+    const imgRevealedSrc = e.target.dataset.src
+    console.log(e.target.dataset.src)
+    console.log(typeof e.target.dataset.src)
+    console.log(imgRevealedSrc)
+    e.target.src === './img/questionMark.png' ? imgRevealedSrc: './img/questionMark.png'
 }
 
 

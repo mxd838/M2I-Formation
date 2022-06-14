@@ -58,3 +58,21 @@ Objectif : décrocher un entretien
 c'est aussi proposer une collaboration et non pas rechercher un emploi
 c'est offrir des compétences et non pas un demandeur d'emploi
 c'est bien souvent une question de posture
+
+Rappel : CV (bloc d'infos)
+données perso
+projet / poste / ambition
+expériences prof
+formation / certifications
+activités extra prof
+langues
+compétences / savoir faire
+soft skill / savoir  être
+outils maitrisés
+
+niveaux (débutant/initiation - intermédiaire - expert)
+
+
+Objectif:
+- verbe d'action infinitif + COD + QCD (Qualité, Coûts, Délai)
+- SMART
