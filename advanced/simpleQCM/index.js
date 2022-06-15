@@ -48,10 +48,6 @@ const createTemplate = () => {
         // --- creation of the radio input
         const answerChoiceInput = document.createElement('input')
         answerChoiceInput.setAttribute('type','radio')
-        // -- first radio input checked by default
-        if ( i === 0){
-            answerChoiceInput.setAttribute('checked', true)
-        }
         answerChoiceInput.classList.add('answerInput')
         // --- insertion of the radio input
         answerContainer.appendChild(answerChoiceInput)
@@ -73,19 +69,23 @@ const fillTemplate = (questionNumber) => {
     const answers = document.querySelectorAll('.answerLabel')
     // -- radio inputs
     const inputs = document.querySelectorAll('.answerInput')
+
     for (let i = 0; i < answers.length; i++){
+        // console.log(answers[i])
         inputs[i].setAttribute('id', `question${questionNumber}id${i}`)
         inputs[i].setAttribute('name',`question${questionNumber}`)
         answers[i].setAttribute('for',`question${questionNumber}id${i}`)
         answers[i].setAttribute('id', `question${questionNumber}label${i}`)
         answers[i].innerText = data[questionNumber].answers[i].text
+        // if (inputs[i].getAttribute('id') === `question${questionNumber}id0` ){
+        //     console.log(inputs[i].getAttribute('id'))
+        //     inputs[i].setAttribute('checked', true)
+        // }
     }
 }
 
 
-// get the question number
-// for the input checked
-// get the corresponding label and register its value in array
+
 const registerUserAnswer = () => {
     const choices = document.querySelectorAll("input[type='radio']")
     const choicesLabels = document.querySelectorAll('label')
@@ -94,14 +94,16 @@ const registerUserAnswer = () => {
             userAnswers.push(choicesLabels[i].innerText)
         }
     }
-    console.log(userAnswers)
+    // console.log(userAnswers)
 }
 
 // Next question
 // -- register user answer
 // -- display the next question
 const nextQuestion = (e) => {
-
+    if (e.target.innerText === 'Rejouer'){
+        window.location.reload()
+    }
     registerUserAnswer()
     if (e.target.innerText === 'Valider'){
         endQuizz()
@@ -117,9 +119,8 @@ const nextQuestion = (e) => {
 }
 
 const endQuizz = () => {
-    // compare all the user answers to the good answers
-    // display all the questions, user answers and good answers
-    // change the button text to 'Rejouer'
+
+    let userPoints = 0
     container.innerHTML = ''
     for (let i = 0; i < data.length; i++){
         // --- creation of the card container
@@ -130,6 +131,8 @@ const endQuizz = () => {
         // --- creation of the question 
         const questionText = document.createElement('h4')
         questionText.classList.add('questionText')
+        // --- insert the question
+        questionText.innerText = data[i].question
         // --- insertion of the question
         cardContainer.appendChild(questionText)
         // --- creation of the answers container
@@ -137,7 +140,7 @@ const endQuizz = () => {
         answersContainer.classList.add('answersContainer')
         // --- insertion of the answers container
         cardContainer.appendChild(answersContainer)
-        for (let i = 0; i < numberOfChoicesLength; i++){
+        for (let j = 0; j < numberOfChoicesLength; j++){
             // --- creation of a single answer container
             const answerContainer = document.createElement('div')
             answerContainer.classList.add('answerContainer')
@@ -146,8 +149,8 @@ const endQuizz = () => {
             // --- creation of the radio input
             const answerChoiceInput = document.createElement('input')
             answerChoiceInput.setAttribute('type','radio')
-            // -- first radio input checked by default
-            if ( i === 0){
+            // --radio input chosen by user checked
+            if ( data[i].answers[j].text === userAnswers[i]){
                 answerChoiceInput.setAttribute('checked', true)
             }
             answerChoiceInput.classList.add('answerInput')
@@ -156,45 +159,32 @@ const endQuizz = () => {
             // --- creation of the label
             const answerLabel = document.createElement('label')
             answerLabel.classList.add('answerLabel')
+            // --- insert the answer text
+            answerLabel.innerText = data[i].answers[j].text
+            // --- highlight the correct answer
+            if (data[i].answers[j].correct && userAnswers[i] === data[i].answers[j].text){
+                userPoints++
+                answerLabel.classList.add('correctAnswer')
+
+            }
+            else if (data[i].answers[j].correct){
+                answerLabel.classList.add('answerCorrected')
+            }
+            if (data[i].answers[j].correct === false && userAnswers[i] === data[i].answers[j].text){
+                answerLabel.classList.add('wrongAnswer')
+            }
             // --- insertion of the label
             answerContainer.appendChild(answerLabel)
         }
-    validateBtn.innerText = 'Rejouer'
     }
+    validateBtn.innerText = 'Rejouer'
+    console.log(userPoints)
+    const results = document.createElement('p')
+    results.innerText = `Votre score: ${userPoints} sur ${data.length}`
+    container.appendChild(results)
 }
 
-const resetQuizz = () => {
-    // window.location.reload()
-}
-
-// console.log(createCorrectAnswersArray())
 createTemplate()
 fillTemplate(questionNumber)
-
-
-
-
-
-
-
-
-
-// const handleEvent = (e) => {
-
-    // switch (e.target.innerText){
-    //     case 'Suivant':
-    //         nextQuestion(e)
-    //         break
-    //     case 'Valider':
-    //         endQuizz()
-    //         break
-    //     case 'Rejouer':
-    //         resetQuizz()
-    //         break
-    //     default :
-    //         console.log('Erreur')
-    // }
-// }
-
 
 validateBtn.addEventListener('click', nextQuestion)
