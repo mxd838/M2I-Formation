@@ -10,20 +10,7 @@ let numberOfChoicesLength = data[questionNumber].answers.length
 let userAnswers = []
 
 // Functions
-// Create array of correct answers
 
-const createCorrectAnswersArray = () => {
-    const correctAnswers = []
-    for (let dataItem of data){
-        for(let i = 0; i < dataItem.answers.length; i++){
-            if (dataItem.answers[i].correct === true){
-                correctAnswers.push(dataItem.answers[i].text)
-            }
-        }
-    }
-    return correctAnswers
-}
-// Create template
 const createTemplate = () => {
     // --- creation of the card container
     const cardContainer = document.createElement('div')
@@ -72,16 +59,11 @@ const fillTemplate = (questionNumber) => {
     const inputs = document.querySelectorAll('.answerInput')
 
     for (let i = 0; i < answers.length; i++){
-        // console.log(answers[i])
         inputs[i].setAttribute('id', `question${questionNumber}id${i}`)
         inputs[i].setAttribute('name',`question${questionNumber}`)
         answers[i].setAttribute('for',`question${questionNumber}id${i}`)
         answers[i].setAttribute('id', `question${questionNumber}label${i}`)
         answers[i].innerText = data[questionNumber].answers[i].text
-        // if (inputs[i].getAttribute('id') === `question${questionNumber}id0` ){
-        //     console.log(inputs[i].getAttribute('id'))
-        //     inputs[i].setAttribute('checked', true)
-        // }
     }
     inputs[0].checked = true
 }
@@ -96,12 +78,9 @@ const registerUserAnswer = () => {
             userAnswers.push(choicesLabels[i].innerText)
         }
     }
-    // console.log(userAnswers)
 }
 
-// Next question
-// -- register user answer
-// -- display the next question
+
 const nextQuestion = (e) => {
     if (e.target.innerText === 'Rejouer'){
         window.location.reload()
@@ -180,8 +159,8 @@ const endQuizz = () => {
         }
     }
     validateBtn.innerText = 'Rejouer'
-    console.log(userPoints)
     const results = document.createElement('p')
+    results.classList.add('results')
     results.innerText = `Votre score: ${userPoints} sur ${data.length}`
     container.appendChild(results)
 }

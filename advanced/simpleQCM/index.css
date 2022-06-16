@@ -4,30 +4,64 @@
     padding: 0;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .container {
-    border: 1px solid black;
+    border: 1px solid #333;
+    margin: 3em;
 }
 
 .cardContainer {
-    border: 1px solid red;
+    background: #fff;
+    padding: 1em;
+    margin: 0.8em;
+    border-radius: 0.4em;
 }
 
 .questionText {
-    border: 1px solid blue;
+    margin: 0.3em;
+    margin-bottom: 0.8em;
 }
 
-.answersContainer {
+/* .answersContainer {
     border: 1px solid green;
-}
+} */
 
 .answerContainer {
-    border: 1px solid coral;
+    margin: 0.2em;
 }
 
 .validate {
-    border: 1px solid aqua;
+    width: 20%;
+    margin: 1.3em auto;
+    text-align: center;
     cursor: pointer;
+    border-radius: 0.3em;
+    background: #fff;
+    padding: 0.5em;
+}
+
+.validate:hover {
+    border: 1px solid white;
+    background: rgba(51, 51, 51, 0.589);
+    color: white;
+}
+
+.results {
+    text-align: center;
+    border-radius: 0.3em;
+    background: #fff;
+    width: 40%;
+    margin: 0.3em auto;
+    padding: 0.4em;
 }
 
 
