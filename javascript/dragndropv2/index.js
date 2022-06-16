@@ -1,0 +1,1 @@
+// setdata : prend l element et met dans setdataitem puis dans setdata

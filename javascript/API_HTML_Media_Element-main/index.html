@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video player</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <video poster="./assets/1347746-big-buck-bunny-opengraph_1200-1.jpg">
+        <source src="./assets/Big_Buck_Bunny_720_10s_2MB.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <ul id="video-controls">
+        <li>
+            <button id="playpause">
+                Play
+            </button>
+        </li>
+
+        <li>
+            <input type="range" id="speed" min="0" max="10" step="0.5" value="1"></input>
+            <label for="speed" id="speedIndicator">&times; 1</label>
+        </li>
+        <li>
+            <button id="stop">
+                Stop
+            </button>
+        </li>
+        <li>
+            <progress id="progress" value="0" max="100">
+
+            </progress>
+        </li>
+        <!-- <li>
+            <button id="mute">
+
+            </button>
+        </li>
+        <li>
+            <button id="volinc"> 
+
+            </button>
+        </li>
+        <li>
+            <button id="voldec">
+
+            </button>
+        </li>
+        <li>
+            <button id="fs">
+
+            </button> -->
+    </ul>
+
+    <script src="./index.js"></script>
+</body>
+</html>

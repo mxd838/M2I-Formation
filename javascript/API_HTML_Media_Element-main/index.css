@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+video {
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+#video-controls {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
