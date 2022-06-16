@@ -32,13 +32,13 @@
 
 
 .correctAnswer {
-    background: green;
+    background: rgba(0, 128, 0, 0.603);
 }
 
 .answerCorrected {
-    background: orange;
+    background: rgba(255, 166, 0, 0.603);
 }
 
 .wrongAnswer {
-    background: red;
+    background: rgba(255, 0, 0, 0.603);
 }

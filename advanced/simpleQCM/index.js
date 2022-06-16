@@ -11,6 +11,7 @@ let userAnswers = []
 
 // Functions
 // Create array of correct answers
+
 const createCorrectAnswersArray = () => {
     const correctAnswers = []
     for (let dataItem of data){
@@ -82,6 +83,7 @@ const fillTemplate = (questionNumber) => {
         //     inputs[i].setAttribute('checked', true)
         // }
     }
+    inputs[0].checked = true
 }
 
 
