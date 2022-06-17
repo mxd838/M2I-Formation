@@ -1,52 +1,70 @@
 // Get DOM elements
 const cells = document.querySelectorAll('.cell img')
+for (let i = 0; i < cells.length; i++){
+    cells[i].id = 'pic' + i
+}
 
 // Variables
 const imgSrcs = ['./img/afghan.png', './img/albania.png', './img/algeria.png', './img/angola.png', './img/argentina.png','./img/bangladesh.png']
+let imgComparisonArray = []
 
 // -- build complete images array
 const completeImgSrcs = imgSrcs.concat(imgSrcs)
 
-// -- add a custom id to match the indexes of completeImgSrcs
-for(let i = 0; i < cells.length; i++){
-    cells[i].setAttribute('data-id', i)
-}
-
-
 // Functions
+const toggleImg = (image) => {
+    const imageToToggle = document.querySelector(`#${image.id}`)
 
-const toggleImg = (e) => {
-    const cellNumber = e.target.dataset.id
-    // check all images
-    // -- if img != e.target (id) has src != ..questionMark.png
-    cells.forEach(cell => {
-        // console.log(cell.dataset.id)
-        if (cell.dataset.id !== e.target.dataset.id && cell.getAttribute('src') === e.target.getAttribute('src')){
-            console.log('Meme source')
-            // console.log('Cell ' + cell.src)
-            // console.log('e.target ' + e.target.src)
-        } else if (cell.dataset.id !== e.target.dataset.id && cell.getAttribute('src') !== e.target.getAttribute('src')) {
-            console.log('Source differente')
-            // console.log('Cell ' + cell.src)
-            // console.log('e.target ' + e.target.src)
-        }
-    })
-    // ----- if this img has same src > dont toggle the imgs
-    // ----- if not, toggle both images
-    e.target.getAttribute('src') === './img/questionMark.png' ? e.target.setAttribute('src',`${completeImgSrcs[cellNumber]}`) : e.target.setAttribute('src','./img/questionMark.png')
+    if( imageToToggle.getAttribute('src') === './img/questionMark.png') {
+        imageToToggle.setAttribute('src', image.picture) 
+    } else {
+        imageToToggle.setAttribute('src', './img/questionMark.png')
+    }
+
+    return image
 }
+
+const compareImgs = () => {
+    if (imgComparisonArray[0].picture === imgComparisonArray[1].picture){
+        document.getElementById(`${imgComparisonArray[0].id}`).removeEventListener('click', playGame)
+        document.getElementById(`${imgComparisonArray[1].id}`).removeEventListener('click', playGame)
+        imgComparisonArray = []
+    } else {
+        setTimeout(() => {
+            toggleImg(imgComparisonArray[0])
+            toggleImg(imgComparisonArray[1])
+            imgComparisonArray = []
+        }, 1000);
+    }
+}
+
+const playGame = (e) => {
+
+    const imgRegistered = {
+        id: e.target.id,
+        picture: completeImgSrcs[e.target.id.slice(3)],
+        found: false
+    }
+
+    if (imgComparisonArray.length === 0){
+        imgComparisonArray.push(imgRegistered)
+        toggleImg(imgRegistered)
+    } else if (imgComparisonArray.length === 1 && imgRegistered !== imgComparisonArray[0]){
+        imgComparisonArray.push(imgRegistered)
+        toggleImg(imgRegistered)
+        compareImgs()
+    }
+}
+
 
 // Event listeners
 cells.forEach(cell => {
-    cell.addEventListener('click', toggleImg)
+  cell.addEventListener('click', playGame)  
 })
 
 
-// associate to each cell a unique identifier
-// get a randomized array with each index corresponding to that identifier
-// when toggle, 
-// DONE -- get the id and toggle to the img with the equivalent index
-// -- check on the container if any img with a source different from questionmark
-// -- if so, set a short time interval to let the user compare the two
-// -- if the two are the same, don't toggle back
-// -- if not toggle them back to question mark
+
+// why not :
+// -- randomized images at loading
+// -- timer and records for completion
+// -- size of the grid chosen by user up until 128(must be even) 
