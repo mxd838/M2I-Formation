@@ -34,10 +34,12 @@ class Demo {
         }
     }
     get age() {
+        // getter used if attribute not public
         return this._age;
     }
     set age(value) {
         // interest of setter : give conditions or raise exceptions in certain cases
+        // no interest if no constraints
         if (value > 0) {
             this._age = value;
         }
@@ -54,3 +56,5 @@ class Demo {
     }
 }
 exports.Demo = Demo;
+// heritage : once class created, not touched again
+// if modifications, through heritage

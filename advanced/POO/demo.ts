@@ -34,11 +34,13 @@ export class Demo {
         }
     }
     get age () : number {
+        // getter used if attribute not public
         return this._age
     }
 
     set age (value : number) {
         // interest of setter : give conditions or raise exceptions in certain cases
+        // no interest if no constraints
         if (value > 0){
             this._age = value
         }
@@ -57,3 +59,7 @@ export class Demo {
         console.log("Je recule")
     }
 }
+
+
+// heritage : once class created, not touched again
+// if modifications, through heritage
