@@ -24,15 +24,23 @@ const demo2 = new demo_1.Demo('Arsene', 48);
 demo.name = 'Mia';
 // console.log(demo.name)
 // heritage
-const audi = new vehicle_1.Vehicle(500, 'rouge', 'Audi', 4);
-audi.brand = 'BMW';
-console.log(audi);
-audi.ride();
+// const audi = new Vehicle(500, 'rouge', 'Audi', 4)
+// audi.brand = 'BMW'
+// console.log(audi)
+// audi.ride()
 const moto = new motorbike_1.Motorbike(250, "black", "Honda", 2);
 // console.log(moto)
-moto.ride();
+// moto.ride()
 // console.log(moto.returnColor())
 // console.log(moto.wheeling())
 const tuture = new car_1.Car(500, 'blue', 'citroen', 4, 5);
-console.log(tuture);
+// console.log(tuture)
 tuture.accelerate();
+console.log(moto.brake());
+// classe abstraite
+// classe qui n'a pas vocation à être instanciée
+// sert à fournir méthodes et attributs à ses enfants
+// qui eux peuvent être instanciés
+moto.ride();
+const motoBis = new motorbike_1.Motorbike(300, 'blue', 'suzuki', 2);
+console.log(vehicle_1.Vehicle.count);

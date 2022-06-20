@@ -40,18 +40,30 @@ demo.name = 'Mia'
 
 
 // heritage
-const audi = new Vehicle(500, 'rouge', 'Audi', 4)
-audi.brand = 'BMW'
-console.log(audi)
-audi.ride()
+// const audi = new Vehicle(500, 'rouge', 'Audi', 4)
+// audi.brand = 'BMW'
+// console.log(audi)
+// audi.ride()
 
 const moto = new Motorbike(250, "black", "Honda", 2)
 // console.log(moto)
-moto.ride()
+// moto.ride()
 // console.log(moto.returnColor())
 // console.log(moto.wheeling())
 
 const tuture = new Car(500, 'blue', 'citroen', 4, 5)
-console.log(tuture)
+// console.log(tuture)
 
 tuture.accelerate()
+
+console.log(moto.brake())
+
+
+// classe abstraite
+// classe qui n'a pas vocation à être instanciée
+// sert à fournir méthodes et attributs à ses enfants
+// qui eux peuvent être instanciés
+
+moto.ride()
+const motoBis = new Motorbike(300, 'blue', 'suzuki', 2)
+console.log(Vehicle.count)

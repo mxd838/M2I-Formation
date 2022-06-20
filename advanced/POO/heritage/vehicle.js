@@ -13,6 +13,9 @@ class Vehicle {
         this._color = color;
         this._brand = brand;
         this._nbWheels = nbWheels;
+        // et pas this.count puisque this se réfère à l'instance 
+        Vehicle.count++;
+        // ici, comme classe abstraite, va s'incrémenter à chaque création d'enfant
     }
     // Encapsulation
     get power() {
@@ -39,11 +42,6 @@ class Vehicle {
     set nbWheels(value) {
         this._nbWheels = value;
     }
-    // Methods
-    // rouler
-    ride() {
-        console.log("Je roule");
-    }
     // accelerer
     accelerate() {
         console.log("J'accélère");
@@ -54,3 +52,7 @@ class Vehicle {
     }
 }
 exports.Vehicle = Vehicle;
+// attribut static
+// attributs statiques ne dépendent pas de l'objet mais de la classe
+// par exemple pour compter le nombre d'objets créés
+Vehicle.count = 0;

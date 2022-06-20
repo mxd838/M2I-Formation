@@ -7,11 +7,19 @@ class Motorbike extends vehicle_1.Vehicle {
     constructor(power, color, brand, nbWheels) {
         super(power, color, brand, nbWheels);
     }
+    ride() {
+        console.log("La moto roule.");
+    }
     returnColor() {
         return this._color;
     }
     wheeling() {
         return "Je fais un wheeling";
+    }
+    // surcharge
+    // on change la signature
+    brake() {
+        return "La moto freine";
     }
 }
 exports.Motorbike = Motorbike;
