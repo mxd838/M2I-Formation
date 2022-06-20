@@ -1,4 +1,4 @@
-export abstract class Vehicle {
+export abstract class Vehicle implements Demo{
     // Attributes
     private _power : number = 0
     protected _color : string = "bleue"
@@ -66,5 +66,10 @@ export abstract class Vehicle {
     // freiner
     public brake() : void {
         console.log("Je freine")
+    }
+
+    // reculer 
+    public reculer() :void {
+        console.log("Le véhicule recule")
     }
 }
