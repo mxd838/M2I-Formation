@@ -8,11 +8,12 @@
 // classes
 
 
-import { ModuleDetectionKind } from 'typescript'
 import {Demo} from './demo'
 import { Car } from './heritage/car'
 import { Motorbike } from './heritage/motorbike'
 import { Vehicle } from './heritage/vehicle'
+import { User } from './heritage/user'
+import { Ballon } from './heritage/ballon'
 
 // new keyword to instantiate an object
 const demo = new Demo('Chiara', 28)
@@ -67,3 +68,12 @@ console.log(moto.brake())
 moto.ride()
 const motoBis = new Motorbike(300, 'blue', 'suzuki', 2)
 console.log(Vehicle.count)
+
+const baballe = new Ballon(42, 'gagball', 'black')
+
+const marion = new User('Marion')
+marion.stockerVehicule(moto)
+marion.stockerVehicule(motoBis)
+marion.stockerVehicule(tuture)
+marion.stockerVehicule(baballe)
+console.log(marion)

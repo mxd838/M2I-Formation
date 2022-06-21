@@ -50,6 +50,10 @@ class Vehicle {
     brake() {
         console.log("Je freine");
     }
+    // reculer 
+    reculer() {
+        console.log("Le véhicule recule");
+    }
 }
 exports.Vehicle = Vehicle;
 // attribut static

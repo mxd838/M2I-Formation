@@ -1,4 +1,6 @@
-export abstract class Vehicle implements Demo{
+import { Idemo } from "./interface/Idemo"
+
+export abstract class Vehicle implements Idemo{
     // Attributes
     private _power : number = 0
     protected _color : string = "bleue"
