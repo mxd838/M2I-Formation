@@ -6,8 +6,26 @@ import { Rectangle } from './rectangle'
 import { Somme } from './somme'
 import { House } from './house'
 import { PersonHouse } from './personHouse'
+import { Somme2 } from './somme2'
 
+const readline = require('readline-sync')
 // const readlineSync = require('readline-sync')
+
+// Redo all exercises with readline
+// 02 - Somme
+const number1 = readline.questionInt('Nombre 1 : ')
+const number2 = readline.questionInt('Nombre 2 : ')
+const sum = new Somme2(number1, number2)
+// console.log(sum.somme())
+
+
+// 03 - Notes étudiant
+
+
+
+
+
+
 
 
 const newRect = new Rectangle(12, 28)
@@ -41,11 +59,12 @@ const maison = new House(120, 'pink')
 
 // console.log(maison)
 
-person1.display(maison.surface, maison.door.color)
+// person1.display(maison.surface, maison.door.color)
 // person2.display(appart.door.color)
 
 person1.setHabitation(appart)
 person2.setHabitation(maison)
 
-console.log(person1)
-console.log(person2)
+// console.log(person1)
+// console.log(person2)
+

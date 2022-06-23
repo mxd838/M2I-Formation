@@ -3,10 +3,24 @@
 // encapsulation
 
 // polymorphisme
+// classe parent humain a deux enfants homme et femme
+// polymorphisme, objet de type femme peut etre typé en humain
 
 
 // classes
 
+
+// classe abstraite, classe qui ne peut pas être instanciée
+// peut comprendre des méthodes abstraites, juste signature, pas de logique à l'intérieur
+// utilisée pour l'héritage
+// rend obligatoire chez les enfants l'implémentation des méthodes abstraites
+
+// interface pour forcer implementation de plusieurs methodes
+// interface comprend signatures des methodes
+//
+// attribut et methode statique
+// attribut et methode liee à classe, pas à instance
+// => pas de mot cle this, appelé directement sur la classe
 
 import {Demo} from './demo'
 import { Car } from './heritage/car'

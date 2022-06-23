@@ -16,5 +16,8 @@ class PersonHouse {
     display(surface, color) {
         console.log(`Je suis une personne.J'habite dans ${surface}. Ma porte est de couleur ${color}`);
     }
+    setHabitation(habitation) {
+        this._habitation = habitation;
+    }
 }
 exports.PersonHouse = PersonHouse;

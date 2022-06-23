@@ -8,7 +8,15 @@ const rectangle_1 = require("./rectangle");
 const somme_1 = require("./somme");
 const house_1 = require("./house");
 const personHouse_1 = require("./personHouse");
+const somme2_1 = require("./somme2");
+const readline = require('readline-sync');
 // const readlineSync = require('readline-sync')
+// Redo all exercises with readline
+// 02 - Somme
+const number1 = readline.questionInt('Nombre 1 : ');
+const number2 = readline.questionInt('Nombre 2 : ');
+const sum = new somme2_1.Somme2(number1, number2);
+console.log(sum.somme());
 const newRect = new rectangle_1.Rectangle(12, 28);
 newRect.largeur = 20;
 // console.log(newRect.surface())
@@ -30,5 +38,7 @@ person1.display(maison.surface, maison.door.color);
 // person2.display(appart.door.color)
 person1.setHabitation(appart);
 person2.setHabitation(maison);
-console.log(person1);
-console.log(person2);
+// console.log(person1)
+// console.log(person2)
+const loulou = readline.question('Loulou ?');
+// console.log(loulou)
