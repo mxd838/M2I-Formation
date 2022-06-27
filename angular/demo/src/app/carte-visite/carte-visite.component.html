@@ -1,0 +1,27 @@
+<div class="background">
+  <div class="card-header">
+    {{ user.company.name }}
+    <div class="card">
+      <div class="name">
+        {{ user.name }}
+      </div>
+      <div class="info">
+        <p>Site : {{ user.website }}</p>
+        <p>Email : {{ user.email }}</p>
+        <p>Phone : {{ user.phone }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <h4>Entreprise :</h4>
+  <input type="text" name="companyLabel" [(ngModel)]="user.company.name" />
+  <h4>Site Web :</h4>
+  <input type="text" name="siteLabel" [(ngModel)]="user.website" />
+  <h4>E-Mail :</h4>
+  <input type="text" name="mailLabel" [(ngModel)]="user.email" />
+  <h4>Nom et prénom :</h4>
+  <input type="text" name="nameLabel" [(ngModel)]="user.name" />
+  <h4>Téléphone :</h4>
+  <input type="text" name="telLabel" [(ngModel)]="user.phone" />
+</div>

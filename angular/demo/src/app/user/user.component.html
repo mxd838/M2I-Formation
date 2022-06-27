@@ -1,0 +1,8 @@
+<p>Nom : {{ nom }}, Prénom : {{ prenom }}</p>
+<!-- arrive avant composant loaded -->
+<img [src]="img" alt="" />
+<p>Job : {{ job }}</p>
+<input type="text" [(ngModel)]="job" />
+<!-- en moins propre mais pareil -->
+<!-- arrive apres composant loaded -->
+<!-- <img src="{{ img }}" alt="" /> -->
