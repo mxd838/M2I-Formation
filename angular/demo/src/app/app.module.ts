@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -15,10 +15,25 @@ import { ShowDateComponent } from './show-date/show-date.component';
 import { GenericAlertButtonComponent } from './generic-alert-button/generic-alert-button.component';
 import { ButtonMenuComponent } from './button-menu/button-menu.component';
 import { ListeCoursesComponent } from './liste-courses/liste-courses.component';
+import { ReactiveListeCoursesComponent } from './reactive-liste-courses/reactive-liste-courses.component';
 
 @NgModule({
-  declarations: [AppComponent, MyFirstComponentComponent, UserComponent, CarteVisiteComponent, AlertButtonComponent, ListeComponent, MagieComponent, ListeFiltreeComponent, ShowDateComponent, GenericAlertButtonComponent, ButtonMenuComponent, ListeCoursesComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [
+    AppComponent,
+    MyFirstComponentComponent,
+    UserComponent,
+    CarteVisiteComponent,
+    AlertButtonComponent,
+    ListeComponent,
+    MagieComponent,
+    ListeFiltreeComponent,
+    ShowDateComponent,
+    GenericAlertButtonComponent,
+    ButtonMenuComponent,
+    ListeCoursesComponent,
+    ReactiveListeCoursesComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
