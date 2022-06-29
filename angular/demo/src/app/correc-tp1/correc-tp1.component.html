@@ -1,0 +1,17 @@
+<div *ngFor="let user of users">
+  <span *ngIf="user.id % 2 === 0">
+    <div class="background">
+      <div class="card-header">
+        {{ user.company.name }}
+        <div class="card">
+          <div class="name">
+            {{ user.name }}
+          </div>
+          <div class="info">
+            <p>Site</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>

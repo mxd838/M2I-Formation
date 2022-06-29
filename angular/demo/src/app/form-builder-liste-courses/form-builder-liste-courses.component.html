@@ -6,10 +6,14 @@
 
 <h4>Total : {{ totalPrice }} euros</h4>
 
-<form [formGroup]="article" (ngSubmit)="addArticle()">
+<form [formGroup]="article" (ngSubmit)="onSubmit()">
   <label for="designation">Designation</label>
   <input type="text" formControlName="designation" />
+  <span *ngIf="form['designation'].invalid && submitted"
+    >* Nom obligatoire</span
+  >
   <label for="price">Prix</label>
   <input type="text" formControlName="price" />
-  <button [disabled]="article.invalid" type="submit">Ajouter</button>
+  <span *ngIf="form['price'].invalid && submitted">* Prix obligatoire</span>
+  <button type="submit">Ajouter</button>
 </form>

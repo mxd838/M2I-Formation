@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let article of articles">
+    {{ article.designation }} : {{ article.prix }}
+  </li>
+</ul>
+<h4>Total : {{ total }}</h4>
+<app-form-courses (onAddArticle)="addArticle($event)"></app-form-courses>

@@ -16,6 +16,11 @@ import { GenericAlertButtonComponent } from './generic-alert-button/generic-aler
 import { ButtonMenuComponent } from './button-menu/button-menu.component';
 import { ListeCoursesComponent } from './liste-courses/liste-courses.component';
 import { ReactiveListeCoursesComponent } from './reactive-liste-courses/reactive-liste-courses.component';
+import { CorrecTp1Component } from './correc-tp1/correc-tp1.component';
+import { CorrecTp1BtnComponent } from './correc-tp1-btn/correc-tp1-btn.component';
+import { FormBuilderListeCoursesComponent } from './form-builder-liste-courses/form-builder-liste-courses.component';
+import { DataCoursesComponent } from './Output-demo/data-courses/data-courses.component';
+import { FormCoursesComponent } from './Output-demo/form-courses/form-courses.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,11 @@ import { ReactiveListeCoursesComponent } from './reactive-liste-courses/reactive
     ButtonMenuComponent,
     ListeCoursesComponent,
     ReactiveListeCoursesComponent,
+    CorrecTp1Component,
+    CorrecTp1BtnComponent,
+    FormBuilderListeCoursesComponent,
+    DataCoursesComponent,
+    FormCoursesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
