@@ -21,6 +21,7 @@ import { CorrecTp1BtnComponent } from './correc-tp1-btn/correc-tp1-btn.component
 import { FormBuilderListeCoursesComponent } from './form-builder-liste-courses/form-builder-liste-courses.component';
 import { DataCoursesComponent } from './Output-demo/data-courses/data-courses.component';
 import { FormCoursesComponent } from './Output-demo/form-courses/form-courses.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { FormCoursesComponent } from './Output-demo/form-courses/form-courses.co
     DataCoursesComponent,
     FormCoursesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
